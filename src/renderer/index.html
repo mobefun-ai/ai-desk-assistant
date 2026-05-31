@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ar">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mira</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="app" class="card collapsed">
+      <div class="header" id="dragHandle">
+        <div class="avatar" id="avatar">
+          <img src="../../assets/icon.png" alt="Mira" id="avatarImg" />
+          <span class="pulse"></span>
+        </div>
+        <div class="title-wrap">
+          <div class="title">Mira</div>
+          <div class="subtitle" id="subtitle">مساعدك الذكي</div>
+        </div>
+        <div class="header-actions">
+          <button class="icon-btn" id="expandBtn" title="توسيع/طي">▢</button>
+          <button class="icon-btn" id="settingsBtn" title="الإعدادات">⚙</button>
+          <button class="icon-btn" id="hideBtn" title="إخفاء">×</button>
+        </div>
+      </div>
+
+      <div class="messages" id="messages"></div>
+
+      <div class="composer">
+        <div class="quick-actions">
+          <button class="chip" id="tipBtn">💡 نصيحة عن الشاشة</button>
+          <button class="chip" id="factBtn">🔎 تحقّق من معلومة</button>
+        </div>
+        <div class="input-row">
+          <textarea
+            id="input"
+            rows="1"
+            placeholder="اكتب سؤالك أو اطلب نصيحة…"
+          ></textarea>
+          <button id="sendBtn" class="send-btn" title="إرسال">➤</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="renderer.js"></script>
+  </body>
+</html>

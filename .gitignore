@@ -1,0 +1,9 @@
+node_modules/
+dist/
+out/
+*.log
+.DS_Store
+# Local runtime data (memory DB, settings written outside electron-store userData)
+data/
+.env
+.env.local
