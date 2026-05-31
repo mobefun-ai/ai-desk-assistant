@@ -11,12 +11,12 @@
 const DEFAULT_MODELS = {
   openai: "gpt-4o-mini",
   anthropic: "claude-3-5-sonnet-latest",
-  gemini: "gemini-1.5-flash",
+  gemini: "gemini-2.5-flash",
 };
 
 const EMBED_MODELS = {
   openai: "text-embedding-3-small",
-  gemini: "text-embedding-004",
+  gemini: "gemini-embedding-001",
 };
 
 function parseDataUrl(dataUrl) {
