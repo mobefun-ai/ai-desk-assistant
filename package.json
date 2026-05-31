@@ -9,6 +9,7 @@
     "start": "electron .",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
+    "smoke": "node scripts/smoke.js",
     "pack": "electron-builder --dir",
     "dist": "electron-builder --win"
   },
