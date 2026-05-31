@@ -1,0 +1,50 @@
+{
+  "name": "ai-desk-assistant",
+  "version": "0.1.0",
+  "description": "A Clippy-style smart desktop assistant that reads your screen and gives field-specific advice (starting with programming). Cross-platform dev, packaged for Windows.",
+  "main": "src/main/main.js",
+  "author": "Mobe",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "smoke": "node scripts/smoke.js",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder --win"
+  },
+  "dependencies": {
+    "electron-store": "^8.2.0"
+  },
+  "devDependencies": {
+    "electron": "^31.7.7",
+    "electron-builder": "^24.13.3",
+    "eslint": "^8.57.1"
+  },
+  "build": {
+    "appId": "com.mobe.aideskassistant",
+    "productName": "AI Desk Assistant",
+    "files": [
+      "src/**/*",
+      "assets/**/*",
+      "!**/*.md"
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "assets/icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true
+    },
+    "linux": {
+      "target": [
+        "AppImage"
+      ],
+      "category": "Utility"
+    }
+  }
+}

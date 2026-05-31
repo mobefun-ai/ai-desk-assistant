@@ -1,0 +1,241 @@
+:root {
+  --bg1: #4f46e5;
+  --bg2: #7c3aed;
+  --card: rgba(255, 255, 255, 0.98);
+  --text: #1f2330;
+  --muted: #6b7280;
+  --user: #eef2ff;
+  --assistant: #f3f4f6;
+  --shadow: 0 12px 34px rgba(20, 20, 50, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, system-ui, sans-serif;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  overflow: hidden;
+  user-select: none;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  background: var(--card);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  overflow: hidden;
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  background: linear-gradient(135deg, var(--bg1), var(--bg2));
+  color: #fff;
+  -webkit-app-region: drag;
+}
+
+.header-actions,
+.icon-btn,
+.chip,
+.send-btn,
+textarea {
+  -webkit-app-region: no-drag;
+}
+
+.avatar {
+  position: relative;
+  width: 38px;
+  height: 38px;
+  flex: 0 0 auto;
+}
+
+.avatar img {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #fff;
+  object-fit: cover;
+  animation: bob 3s ease-in-out infinite;
+}
+
+@keyframes bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+.pulse {
+  position: absolute;
+  bottom: 1px;
+  inset-inline-end: 1px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #22c55e;
+  border: 2px solid #fff;
+}
+
+.title-wrap {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.title {
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 1.1;
+}
+.subtitle {
+  font-size: 11px;
+  opacity: 0.85;
+}
+
+.header-actions {
+  display: flex;
+  gap: 4px;
+}
+.icon-btn {
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+  border: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 13px;
+  line-height: 1;
+}
+.icon-btn:hover {
+  background: rgba(255, 255, 255, 0.32);
+}
+
+/* Messages */
+.messages {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: #fbfbfd;
+}
+
+.collapsed .messages {
+  max-height: 70px;
+}
+
+.msg {
+  max-width: 88%;
+  padding: 8px 11px;
+  border-radius: 12px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text);
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+.msg.assistant {
+  background: var(--assistant);
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+}
+.msg.user {
+  background: var(--user);
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+}
+.msg.error {
+  background: #fee2e2;
+  color: #991b1b;
+}
+.msg.typing {
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* Composer */
+.composer {
+  padding: 8px 10px 10px;
+  border-top: 1px solid #ececf2;
+  background: #fff;
+}
+.collapsed .composer .quick-actions {
+  margin-bottom: 6px;
+}
+.quick-actions {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+.chip {
+  flex: 1;
+  background: #f1f0fb;
+  border: 1px solid #e4e2f5;
+  color: #4338ca;
+  border-radius: 999px;
+  padding: 6px 8px;
+  font-size: 11.5px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.chip:hover {
+  background: #e7e5fb;
+}
+
+.input-row {
+  display: flex;
+  gap: 6px;
+  align-items: flex-end;
+}
+textarea {
+  flex: 1;
+  resize: none;
+  border: 1px solid #dcdce6;
+  border-radius: 12px;
+  padding: 8px 10px;
+  font-size: 13px;
+  max-height: 90px;
+  outline: none;
+}
+textarea:focus {
+  border-color: var(--bg1);
+}
+.send-btn {
+  background: linear-gradient(135deg, var(--bg1), var(--bg2));
+  color: #fff;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  flex: 0 0 auto;
+}
+.send-btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+/* Scrollbar */
+.messages::-webkit-scrollbar {
+  width: 6px;
+}
+.messages::-webkit-scrollbar-thumb {
+  background: #d4d4e2;
+  border-radius: 4px;
+}
